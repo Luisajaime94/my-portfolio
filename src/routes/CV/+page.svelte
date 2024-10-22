@@ -1,0 +1,115 @@
+<script>
+// JavaScript logic can go here if needed
+</script>
+
+<style>
+/* Include only the necessary styles for this specific page or use global styles */
+</style>
+
+<!-- Color Scheme Switcher -->
+<div class="color-scheme">
+    <label for="theme-select">Theme:</label>
+    <select id="theme-select">
+        <option value="auto">Automatic</option>
+        <option value="light">Light</option>
+        <option value="dark">Dark</option>
+    </select>
+</div>
+
+<nav>
+    <ul>
+        <!-- Navigation links will be dynamically added here -->
+    </ul>
+</nav>
+
+<!-- Education Section -->
+<section class="education">
+    <h2>Education</h2>
+    <h3>University of California, San Diego</h3>
+    <p>Masters in Data Science</p>
+    <p>Relevant Coursework: Machine Learning, Big Data Spark, Statistics</p>
+
+    <h3>ITESO (Mexico)</h3>
+    <p>Bachelors in Bioengineering</p>
+</section>
+
+<!-- Experience Section -->
+<section class="experience">
+    <h2>Experience</h2>
+
+    <h3>Mabplex, San Diego, CA</h3>
+    <p><strong>Process Engineer II</strong> (May 2022 – Present)</p>
+    <ul>
+        <li>Developed and optimized the CHO cell culture process, utilizing statistical analysis and data interpretation to uncover insights.</li>
+        <li>Applied advanced statistical techniques to identify critical process parameters and establish robust control strategies.</li>
+        <li>Generated technical reports and documentation to communicate experimental procedures and insights effectively.</li>
+        <li>Contributed to process scale-up activities and stayed updated on industry advancements.</li>
+        <li>Led initiatives to improve cell culture processes across various platforms.</li>
+        <li>Developed standard operating procedures (SOP) for cell line development.</li>
+        <li>Developed a peptide sequence classifier using machine learning and data preprocessing techniques.</li>
+    </ul>
+
+    <h3>Biolegend, San Diego, CA</h3>
+    <p><strong>Biochemist II</strong> (January 2021 – May 2022)</p>
+    <ul>
+        <li>Executed and monitored all stages of antibody conjugation.</li>
+        <li>Successfully performed troubleshooting within the manufacturing line.</li>
+    </ul>
+
+    <h3>Scripps Laboratories, San Diego, CA</h3>
+    <p><strong>Biochemist II</strong> (January 2020 – January 2021)</p>
+    <ul>
+        <li>Successfully managed the manufacturing of various proteins through multiple purification stages, following SOP.</li>
+        <li>Worked with recombinant proteins as well as animal and human organs, extracting and purifying specific target proteins for downstream applications.</li>
+        <li>Performed comprehensive analysis of purified proteins using various bioassays, such as SDS-PAGE, HPLC, Bradford assays, ELISA, and Western Blot.</li>
+    </ul>
+</section>
+
+<!-- Projects Section -->
+<section class="projects">
+    <h2>Data Science Relevant Coursework & Projects</h2>
+    <ul>
+        <li>Utilized Random Forest on heart risk dataset to predict potential heart attack based on different features.</li>
+        <li>Employed Apache Spark to streamline processing of large-scale air pollution data.</li>
+        <li>Utilized Pandas, NumPy, Seaborn & Matplotlib for analyzing happiness determinants in different countries.</li>
+        <li>Developed restaurant classification project leveraging SVM & XGBoost algorithms for NLP.</li>
+        <li>Data cleaning and preparation</li>
+    </ul>
+</section>
+
+<!-- Skills Section -->
+<section class="skills">
+    <h2>Skills & Interests</h2>
+    <h3>Technical Skills:</h3>
+    <ul>
+        <li>Python</li>
+        <li>Postgres SQL</li>
+        <li>Apache Spark</li>
+        <li>Bash</li>
+        <li>Git/Github</li>
+    </ul>
+    <h3>Languages:</h3>
+    <ul>
+        <li>English - 100%</li>
+        <li>Spanish - 100%</li>
+    </ul>
+    <h3>Laboratory Skills:</h3>
+    <ul>
+        <li>Cell culture</li>
+        <li>STR Bioreactors</li>
+        <li>Ambr 250HT</li>
+        <li>Column Chromatography</li>
+        <li>SDS-PAGE</li>
+        <li>Column Packing</li>
+        <li>Perfusion</li>
+    </ul>
+    <h3>Interests:</h3>
+    <ul>
+        <li>Data Model Prediction</li>
+        <li>Process Optimization</li>
+        <li>Machine Learning</li>
+        <li>Big Data Analysis</li>
+        <li>NLP</li>
+        <li>AI</li>
+    </ul>
+</section>
