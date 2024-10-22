@@ -3,14 +3,15 @@ console.log("IT'S ALIVE");
 
 // Create the navigation bar and handle dark mode when DOM content is loaded
 document.addEventListener("DOMContentLoaded", () => {
-    // Pages array with relative URLs (updated paths)
+    // Pages array with relative URLs
     let pages = [
-        { url: "projects", title: "Projects" },
-        { url: "CV", title: "CV" },
-        { url: "contact", title: "Contact" },
-        { url: ".", title: "Home" },
+        { url: "./", title: "Home" },
+        { url: "./projects", title: "Projects" },
+        { url: "./CV", title: "CV" },
+        { url: "./contact", title: "Contact" },
         { url: "https://github.com/Luisajaime94", title: "GitHub" }
     ];
+
     // Get the existing nav element
     let nav = document.querySelector('nav ul');
     if (!nav) {

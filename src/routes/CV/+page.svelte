@@ -1,10 +1,6 @@
-<script>
-// JavaScript logic can go here if needed
-</script>
-
-<style>
-/* Include only the necessary styles for this specific page or use global styles */
-</style>
+<svelte:head>
+  <title>Resume</title>
+</svelte:head>
 
 <!-- Color Scheme Switcher -->
 <div class="color-scheme">
@@ -16,6 +12,7 @@
     </select>
 </div>
 
+<!-- Navigation -->
 <nav>
     <ul>
         <!-- Navigation links will be dynamically added here -->
@@ -36,7 +33,6 @@
 <!-- Experience Section -->
 <section class="experience">
     <h2>Experience</h2>
-
     <h3>Mabplex, San Diego, CA</h3>
     <p><strong>Process Engineer II</strong> (May 2022 – Present)</p>
     <ul>

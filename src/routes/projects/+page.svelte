@@ -1,3 +1,34 @@
+<script>
+    import projects from '$lib/projects.json'; // Importing the JSON data
+    import Project from '$lib/Project.svelte'; // Import the Project component
+</script>
+
+<svelte:head>
+  <title>Projects</title>
+</svelte:head>
+
+<style>
+    .projects {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(15em, 1fr));
+        gap: 1em;
+        margin: 1em 0;
+    }
+
+    .projects article {
+        border: 1px solid #ccc;
+        border-radius: 5px;
+        padding: 1em;
+        background-color: #fff;
+    }
+
+    .projects img {
+        max-width: 100%;
+        height: auto;
+    }
+</style>
+
+<!-- Theme switcher -->
 <div class="color-scheme">
     <label for="theme-select">Theme:</label>
     <select id="theme-select">
@@ -7,73 +38,18 @@
     </select>
 </div>
 
+<!-- Navigation -->
 <nav>
     <ul>
         <!-- Navigation links will be dynamically added here -->
     </ul>
 </nav>
 
+<!-- Projects Section -->
 <h1>Projects</h1>
 <p>Lab Projects Setup Lab 1 projects folder</p>
 <div class="projects">
-    <article>
-        <h2>Lorem 1?</h2>
-        <img src="%sveltekit.assets%/images/empty.svg" alt="X">
-        <p>Lorem?</p>
-    </article>
-     <article>
-            <h2>Lorem 2?</h2>
-            <img src="https://vis-society.github.io/labs/2/images/empty.svg" alt="X">
-            <p>Lorem?</p>
-        </article>
-        <article>
-            <h2>Lorem 3?</h2>
-            <img src="https://vis-society.github.io/labs/2/images/empty.svg" alt="X">
-            <p>Lorem?</p>
-        </article>
-        <article>
-            <h2>Lorem 4?</h2>
-            <img src="https://vis-society.github.io/labs/2/images/empty.svg" alt="X">
-            <p>Lorem?</p>
-        </article>
-        <article>
-            <h2>Lorem 5?</h2>
-            <img src="https://vis-society.github.io/labs/2/images/empty.svg" alt="X">
-            <p>Lorem?</p>
-        </article>
-        <article>
-            <h2>Lorem 6?</h2>
-            <img src="https://vis-society.github.io/labs/2/images/empty.svg" alt="X">
-            <p>Lorem?</p>
-        </article>
-        <article>
-            <h2>Lorem 7?</h2>
-            <img src="https://vis-society.github.io/labs/2/images/empty.svg" alt="X">
-            <p>Lorem?</p>
-        </article>
-        <article>
-            <h2>Lorem 8?</h2>
-            <img src="https://vis-society.github.io/labs/2/images/empty.svg" alt="X">
-            <p>Lorem?</p>
-        </article>
-        <article>
-            <h2>Lorem 9?</h2>
-            <img src="https://vis-society.github.io/labs/2/images/empty.svg" alt="X">
-            <p>Lorem?</p>
-        </article>
-        <article>
-            <h2>Lorem 10?</h2>
-            <img src="https://vis-society.github.io/labs/2/images/empty.svg" alt="X">
-            <p>Lorem?</p>
-        </article>
-        <article>
-            <h2>Lorem 11?</h2>
-            <img src="https://vis-society.github.io/labs/2/images/empty.svg" alt="X">
-            <p>Lorem?</p>
-        </article>
-        <article>
-            <h2>Lorem 12?</h2>
-            <img src="https://vis-society.github.io/labs/2/images/empty.svg" alt="X">
-            <p>Lorem?</p>
-        </article>
+    {#each projects as p}
+        <Project data={p} hLevel={2} />
+    {/each}
 </div>
