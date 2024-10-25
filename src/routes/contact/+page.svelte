@@ -16,11 +16,7 @@
     </select>
 </div>
 
-<nav>
-    <ul>
-        <!-- Navigation links will be dynamically added here -->
-    </ul>
-</nav>
+
 <!-- Contact Information -->
 <section class="contact-info">
     <h1>Contact Luisa Jaime</h1>

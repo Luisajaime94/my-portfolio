@@ -20,27 +20,27 @@ document.addEventListener("DOMContentLoaded", () => {
     }
 
     // Dynamically create the navigation links
-    pages.forEach((p) => {
-        let li = document.createElement('li');
-        let a = document.createElement('a');
+    //pages.forEach((p) => {
+       // let li = document.createElement('li');
+        //let a = document.createElement('a');
 
         // Set the URL and text content for the navigation link
-        a.href = p.url;
-        a.textContent = p.title;
-        li.appendChild(a);
-        nav.appendChild(li);
+       // a.href = p.url;
+       // a.textContent = p.title;
+        //li.appendChild(a);
+        //nav.appendChild(li);
 
         // Add 'current' class for the active page (current page highlighting)
-        a.classList.toggle(
-            'current',
-            a.host === location.host && a.pathname === location.pathname
-        );
+       // a.classList.toggle(
+           // 'current',
+           // a.host === location.host && a.pathname === location.pathname
+        //);
 
         // Open external links in a new tab
-        if (a.host !== location.host) {
-            a.target = '_blank';
-        }
-    });
+        //if (a.host !== location.host) {
+           // a.target = '_blank';
+       // }
+   // });
 
     // Theme switcher logic
     const themeSwitcher = document.getElementById('theme-select');

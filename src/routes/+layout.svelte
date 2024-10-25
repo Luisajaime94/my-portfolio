@@ -11,7 +11,7 @@
 </script>
 
 <svelte:head>
-  <title>Your Site Title</title>
+  <title>Welcome </title>
 </svelte:head>
 
 <!-- Navigation Bar -->

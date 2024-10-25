@@ -38,13 +38,6 @@
     </select>
 </div>
 
-<!-- Navigation -->
-<nav>
-    <ul>
-        <!-- Navigation links will be dynamically added here -->
-    </ul>
-</nav>
-
 <!-- Projects Section -->
 <h1>Projects</h1>
 <p>Lab Projects Setup Lab 1 projects folder</p>

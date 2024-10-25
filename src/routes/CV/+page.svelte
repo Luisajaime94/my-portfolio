@@ -12,13 +12,6 @@
     </select>
 </div>
 
-<!-- Navigation -->
-<nav>
-    <ul>
-        <!-- Navigation links will be dynamically added here -->
-    </ul>
-</nav>
-
 <!-- Education Section -->
 <section class="education">
     <h2>Education</h2>

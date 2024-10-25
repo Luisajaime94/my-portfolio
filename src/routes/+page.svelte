@@ -17,14 +17,8 @@
     </select>
 </div>
 
-<nav>
-    <ul>
-        <!-- Dynamic menu will be inserted here by JavaScript -->
-    </ul>
-</nav>
-
 <h1>Luisa Jaime</h1>
-<p>My name is Luisa Jaime, and I was born and raised in Guadalajara, Mexico...</p>
+<p>My name is Luisa Jaime, and I was born and raised in Guadalajara, Mexico. I studied Bioengineering and have been working in that field since 2018.I decided to start this masteres to get new career opportunities</p>
 <img src="/images/IMG_3637.JPEG" alt="A photo of Luisa in CDMX" style="width: 300px; height: auto;">
 
 <h2>Latest Projects</h2>
