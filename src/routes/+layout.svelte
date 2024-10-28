@@ -1,6 +1,7 @@
 <script>
-  import { page } from '$app/stores'; // To access current page info
+  import { page } from '$app/stores';
 
+  // Define the navigation pages
   let pages = [
     { url: './', title: 'Home' },
     { url: './projects', title: 'Projects' },
@@ -8,6 +9,17 @@
     { url: './contact', title: 'Contact' },
     { url: 'https://github.com/Luisajaime94', title: 'GitHub' }
   ];
+
+  // Access `localStorage` and set up the color scheme with fallback to 'light'
+  let localStorage = globalThis.localStorage ?? {};
+  let colorScheme = localStorage.colorScheme ?? 'light'; // Default to 'light' if no saved preference
+  let root = globalThis?.document?.documentElement;
+
+  // Reactive statement to apply color scheme dynamically on <html> element
+  $: root?.style.setProperty('color-scheme', colorScheme);
+
+  // Save color scheme to `localStorage` whenever it changes
+  $: localStorage.colorScheme = colorScheme;
 </script>
 
 <svelte:head>
@@ -22,6 +34,17 @@
     </a>
   {/each}
 </nav>
+
+<!-- Theme Switcher Dropdown -->
+<div class="theme-switcher">
+  <label for="theme-select">Theme:</label>
+  <select id="theme-select" bind:value={colorScheme}>
+    <option value="auto">Auto</option>
+    <option value="light">Light</option>
+    <option value="dark">Dark</option>
+  </select>
+</div>
+
 
 <slot /> <!-- This will display the page content -->
 
@@ -48,5 +71,23 @@
   .current {
     font-weight: bold; /* Makes the current link bold */
     color: #007bff; /* Accent color for current page */
+  }
+
+  .theme-switcher {
+    margin-left: 1em;
+  }
+
+  /* Dark Mode Styles */
+  .dark-mode {
+    background-color: #333;
+    color: #fff;
+  }
+
+  .dark-mode nav {
+    background-color: #444;
+  }
+
+  .dark-mode nav a:hover {
+    color: #ddd;
   }
 </style>

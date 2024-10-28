@@ -1,62 +1,75 @@
 [
     {
-        "title": "Lorem 1?",
-        "image": "https://vis-society.github.io/labs/2/images/empty.svg",
-        "description": "Lorem?"
+      "title": "232 Project",
+      "year": "2024",
+      "image": "https://via.placeholder.com/150",
+      "description": "Final project for course 232, focusing on data analysis and visualization techniques."
     },
     {
-        "title": "Lorem 2?",
-        "image": "https://vis-society.github.io/labs/2/images/empty.svg",
-        "description": "Lorem?"
+      "title": "Assignment1",
+      "year": "2024",
+      "image": "https://via.placeholder.com/150",
+      "description": "A foundational assignment exploring data preprocessing and basic machine learning."
     },
     {
-        "title": "Lorem 3?",
-        "image": "https://vis-society.github.io/labs/2/images/empty.svg",
-        "description": "Lorem?"
+      "title": "Happiness Dataset",
+      "year": "2023",
+      "image": "https://via.placeholder.com/150",
+      "description": "Analyzed the Happiness Dataset to uncover factors affecting happiness across countries."
     },
     {
-        "title": "Lorem 4?",
-        "image": "https://vis-society.github.io/labs/2/images/empty.svg",
-        "description": "Lorem?"
+      "title": "Happiness Miniproject",
+      "year": "2023",
+      "image": "https://via.placeholder.com/150",
+      "description": "A mini project that dives deeper into happiness metrics using statistical analysis."
     },
     {
-        "title": "Lorem 5?",
-        "image": "https://vis-society.github.io/labs/2/images/empty.svg",
-        "description": "Lorem?"
+      "title": "Happiness Dataset Project",
+      "year": "2023",
+      "image": "https://via.placeholder.com/150",
+      "description": "Extended analysis of the Happiness Dataset, focusing on data visualization."
     },
     {
-        "title": "Lorem 6?",
-        "image": "https://vis-society.github.io/labs/2/images/empty.svg",
-        "description": "Lorem?"
+      "title": "Happiness Project",
+      "year": "2023",
+      "image": "https://via.placeholder.com/150",
+      "description": "Explored the correlation between economic factors and happiness levels in various countries."
     },
     {
-        "title": "Lorem 7?",
-        "image": "https://vis-society.github.io/labs/2/images/empty.svg",
-        "description": "Lorem?"
+      "title": "Lecture Notebooks",
+      "year": "2024",
+      "image": "https://via.placeholder.com/150",
+      "description": "A collection of notebooks used in lectures, covering various data science topics."
     },
     {
-        "title": "Lorem 8?",
-        "image": "https://vis-society.github.io/labs/2/images/empty.svg",
-        "description": "Lorem?"
+      "title": "Pyspark HW1",
+      "year": "2024",
+      "image": "https://via.placeholder.com/150",
+      "description": "First homework assignment on PySpark, focusing on big data processing and analysis."
     },
     {
-        "title": "Lorem 9?",
-        "image": "https://vis-society.github.io/labs/2/images/empty.svg",
-        "description": "Lorem?"
+      "title": "Portfolio",
+      "year": "2023",
+      "image": "https://via.placeholder.com/150",
+      "description": "Personal portfolio showcasing various projects and assignments in data science."
     },
     {
-        "title": "Lorem 10?",
-        "image": "https://vis-society.github.io/labs/2/images/empty.svg",
-        "description": "Lorem?"
+      "title": "Portafolio 2.0",
+      "year": "2024",
+      "image": "https://via.placeholder.com/150",
+      "description": "An updated version of my portfolio, featuring improved design and new projects."
     },
     {
-        "title": "Lorem 11?",
-        "image": "https://vis-society.github.io/labs/2/images/empty.svg",
-        "description": "Lorem?"
+      "title": "Portafolio Final",
+      "year": "2024",
+      "image": "https://via.placeholder.com/150",
+      "description": "The final version of my portfolio, highlighting all completed projects and achievements."
     },
     {
-        "title": "Lorem 12?",
-        "image": "https://vis-society.github.io/labs/2/images/empty.svg",
-        "description": "Lorem?"
+      "title": "My Portfolio",
+      "year": "2024",
+      "image": "https://via.placeholder.com/150",
+      "description": "A portfolio built with SvelteKit, displaying personal projects and professional skills."
     }
-]
+  ]
+  

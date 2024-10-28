@@ -6,15 +6,6 @@
   <title>Contact Luisa Jaime</title>
 </svelte:head>
 
-<!-- Color Scheme Switcher -->
-<div class="color-scheme">
-    <label for="theme-select">Theme:</label>
-    <select id="theme-select">
-        <option value="auto">Automatic</option>
-        <option value="light">Light</option>
-        <option value="dark">Dark</option>
-    </select>
-</div>
 
 
 <!-- Contact Information -->

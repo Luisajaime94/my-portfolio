@@ -2,22 +2,22 @@
 console.log("IT'S ALIVE");
 
 // Create the navigation bar and handle dark mode when DOM content is loaded
-document.addEventListener("DOMContentLoaded", () => {
+//document.addEventListener("DOMContentLoaded", () => {
     // Pages array with relative URLs
-    let pages = [
-        { url: "./", title: "Home" },
-        { url: "./projects", title: "Projects" },
-        { url: "./CV", title: "CV" },
-        { url: "./contact", title: "Contact" },
-        { url: "https://github.com/Luisajaime94", title: "GitHub" }
-    ];
+    //let pages = [
+       // { url: "./", title: "Home" },
+       // { url: "./projects", title: "Projects" },
+       // { url: "./CV", title: "CV" },
+       // { url: "./contact", title: "Contact" },
+       // { url: "https://github.com/Luisajaime94", title: "GitHub" }
+   // ];
 
     // Get the existing nav element
-    let nav = document.querySelector('nav ul');
-    if (!nav) {
-        console.error("Navigation element not found!");
-        return;
-    }
+   // let nav = document.querySelector('nav ul');
+    //if (!nav) {
+       // console.error("Navigation element not found!");
+       // return;
+   // }
 
     // Dynamically create the navigation links
     //pages.forEach((p) => {
@@ -43,37 +43,37 @@ document.addEventListener("DOMContentLoaded", () => {
    // });
 
     // Theme switcher logic
-    const themeSwitcher = document.getElementById('theme-select');
-    if (themeSwitcher) {
-        themeSwitcher.addEventListener('change', (event) => {
-            const selectedTheme = event.target.value;
+    //const themeSwitcher = document.getElementById('theme-select');
+    //if (themeSwitcher) {
+        //themeSwitcher.addEventListener('change', (event) => {
+            //const selectedTheme = event.target.value;
 
-            if (selectedTheme === 'dark') {
-                document.body.classList.add('dark-mode');
-                localStorage.setItem('theme', 'dark');
-            } else if (selectedTheme === 'light') {
-                document.body.classList.remove('dark-mode');
-                localStorage.setItem('theme', 'light');
-            } else {
-                localStorage.removeItem('theme');
-                if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
-                    document.body.classList.add('dark-mode');
-                } else {
-                    document.body.classList.remove('dark-mode');
-                }
-            }
-        });
+            //if (selectedTheme === 'dark') {
+                //document.body.classList.add('dark-mode');
+                //localStorage.setItem('theme', 'dark');
+            //} else if (selectedTheme === 'light') {
+                //document.body.classList.remove('dark-mode');
+                //localStorage.setItem('theme', 'light');
+            //} else {
+                //localStorage.removeItem('theme');
+                //if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
+                    //document.body.classList.add('dark-mode');
+                //} else {
+                    //document.body.classList.remove('dark-mode');
+                //}
+            //}
+        //});
 
         // Apply saved or system-preferred theme
-        const savedTheme = localStorage.getItem('theme');
-        if (savedTheme) {
-            document.body.classList.toggle('dark-mode', savedTheme === 'dark');
-            themeSwitcher.value = savedTheme;
-        } else if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
-            document.body.classList.add('dark-mode');
-            themeSwitcher.value = 'auto';
-        }
-    } else {
-        console.error("Theme switcher element not found!");
-    }
-});
+        //const savedTheme = localStorage.getItem('theme');
+       // if (savedTheme) {
+            //document.body.classList.toggle('dark-mode', savedTheme === 'dark');
+            //themeSwitcher.value = savedTheme;
+       // } else if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
+            //document.body.classList.add('dark-mode');
+            //themeSwitcher.value = 'auto';
+       // }
+    //} else {
+       // console.error("Theme switcher element not found!");
+    //}
+//});

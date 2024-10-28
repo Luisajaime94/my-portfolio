@@ -28,15 +28,7 @@
     }
 </style>
 
-<!-- Theme switcher -->
-<div class="color-scheme">
-    <label for="theme-select">Theme:</label>
-    <select id="theme-select">
-        <option value="auto">Automatic</option>
-        <option value="light">Light</option>
-        <option value="dark">Dark</option>
-    </select>
-</div>
+
 
 <!-- Projects Section -->
 <h1>Projects</h1>

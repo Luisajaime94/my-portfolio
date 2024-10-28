@@ -1,103 +1,53 @@
-/* Set color-scheme for automatic dark mode */
-html {
-  color-scheme: light dark;
+/* Global Styles */
+
+/* Reset some default browser styles */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
-/* Set line height to 1.5 times the font size 
- and use the OS’s UI font as the website font */
+/* Body styling */
 body {
-  font: 100%/1.5 system-ui;
-  max-width: 100ch; /* limits body to 100 characters */
-  margin: max(1em, calc((100% - 100ch) / 2)); /* centers content horizontally */
-  padding-inline: 1em; /* Adds padding on the left and right */
-  background-color: white; /* Default background color */
-  color: black; /* Default text color */
-  transition: background-color 0.3s, color 0.3s; /* Smooth transitions for background and text color */
+  font-family: Arial, sans-serif;
+  background-color: #fff; /* Default background */
+  color: #333; /* Default text color */
+  line-height: 1.6;
 }
 
-/* Dark mode styles */
-body.dark-mode {
-  background-color: #121212; /* Dark background */
-  color: white; /* Light text */
+/* Basic styling for lists */
+ul {
+  list-style-type: none;
 }
 
-/* Position the color scheme switcher */
-.color-scheme {
-  position: absolute;
-  top: 1rem; /* Adjust this value as needed */
-  right: 1rem; /* Adjust this value as needed */
-  font-size: 80%; /* Smaller font size */
+/* Buttons */
+button {
+  cursor: pointer;
+  padding: 0.5em 1em;
+  border: none;
+  border-radius: 4px;
+  background-color: #007bff;
+  color: white;
+  transition: background-color 0.3s ease;
 }
 
-/* Define border color variable */
-nav {
-  --border-color: oklch(50% 10% 200 / 40%);
-  display: flex;
-  margin-bottom: 1em; /* Space below the nav */
-  border-bottom: 1px solid var(--border-color); /* Use CSS variable for border color */
+button:hover {
+  background-color: #0056b3;
 }
 
-/* Navigation links styling */
-nav a {
-  flex: 1;
-  text-align: center;
-  text-decoration: none; /* Remove underline */
-  color: inherit; /* Use the same color as parent */
-  padding: 0.5em; /* Add padding */
-  transition: border-bottom 0.3s ease; /* Smooth transition for hover effect */
+/* Links */
+a {
+  color: #007bff;
+  text-decoration: none;
 }
 
-/* Hover effect for navigation links */
-nav a:hover {
-  background-color: color-mix(in oklch, var(--color-accent), canvas 85%); /* Better hover color for dark mode */
-  border-bottom: 0.4em solid var(--color-accent);
+a:hover {
+  color: #0056b3;
 }
 
-/* Current page link styling */
-.current {
-  font-weight: bold; /* Makes the current link bold */
-  color: var(--color-accent); /* Use the accent color defined in your CSS */
-}
-
-/* Additional styles for headings */
-h1 {
-  font-size: 2em; /* Size of the main heading */
-  margin-bottom: 0.5em; /* Space below the heading */
-}
-
-h2 {
-  font-size: 1.5em; /* Size of h2 headings */
-  margin-bottom: 0.5em; /* Space below h2 headings */
-}
-
-h3 {
-  font-size: 1.25em; /* Size of h3 headings */
-  margin-bottom: 0.5em; /* Space below h3 headings */
-}
-
-/* Paragraph styling */
-p {
-  margin-bottom: 1em; /* Space below paragraphs */
-}
-
-/* Image styling */
-img {
-  width: 300px; /* Set a fixed width for images */
-  height: auto; /* Maintain aspect ratio */
-  border-radius: 8px; /* Optional: adds rounded corners */
-}
-
-/* Styles specific to Project component */
-article {
-  border: 1px solid #ccc;
-  border-radius: 5px;
+/* Basic layout styling */
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
   padding: 1em;
-  background-color: #fff; /* Ensure articles have a white background */
-  margin-bottom: 1em; /* Space between articles */
-}
-
-/* Project component image styling */
-.project img {
-  max-width: 100%; /* Responsive image size */
-  height: auto; /* Maintain aspect ratio */
 }
