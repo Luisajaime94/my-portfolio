@@ -1,7 +1,6 @@
 <script>
   import { page } from '$app/stores';
 
-  // Define the navigation pages
   let pages = [
     { url: './', title: 'Home' },
     { url: './projects', title: 'Projects' },
@@ -10,23 +9,20 @@
     { url: 'https://github.com/Luisajaime94', title: 'GitHub' }
   ];
 
-  // Access `localStorage` and set up the color scheme with fallback to 'light'
   let localStorage = globalThis.localStorage ?? {};
-  let colorScheme = localStorage.colorScheme ?? 'light'; // Default to 'light' if no saved preference
+  let colorScheme = localStorage.colorScheme ?? 'light';
   let root = globalThis?.document?.documentElement;
 
-  // Reactive statement to apply color scheme dynamically on <html> element
   $: root?.style.setProperty('color-scheme', colorScheme);
-
-  // Save color scheme to `localStorage` whenever it changes
+  $: root?.setAttribute('data-theme', colorScheme);
   $: localStorage.colorScheme = colorScheme;
 </script>
 
 <svelte:head>
-  <title>Welcome </title>
+  <title>Welcome</title>
+  <link rel="stylesheet" href="/style.css" />
 </svelte:head>
 
-<!-- Navigation Bar -->
 <nav>
   {#each pages as p}
     <a href={p.url} class:current={'.' + $page.route.id === p.url} target={p.url.startsWith('http') ? '_blank' : null}>
@@ -35,7 +31,6 @@
   {/each}
 </nav>
 
-<!-- Theme Switcher Dropdown -->
 <div class="theme-switcher">
   <label for="theme-select">Theme:</label>
   <select id="theme-select" bind:value={colorScheme}>
@@ -45,49 +40,34 @@
   </select>
 </div>
 
-
-<slot /> <!-- This will display the page content -->
+<slot />
 
 <style>
   nav {
     display: flex;
-    justify-content: space-around; /* Adjusts spacing */
-    margin-bottom: 1em; /* Space below the nav */
-    background-color: #f8f9fa; /* Optional background color */
-    padding: 1em; /* Add some padding */
+    justify-content: space-around;
+    margin-bottom: 1em;
+    background-color: var(--background);
+    padding: 1em;
   }
 
   nav a {
-    text-decoration: none; /* Remove underline */
-    color: inherit; /* Use the same color as parent */
-    padding: 0.5em; /* Add padding */
-    transition: color 0.3s ease; /* Smooth transition for hover effect */
+    text-decoration: none;
+    color: var(--text-color);
+    padding: 0.5em;
+    transition: color 0.3s ease;
   }
 
   nav a:hover {
-    color: #007bff; /* Change color on hover */
+    color: var(--link-hover);
   }
 
   .current {
-    font-weight: bold; /* Makes the current link bold */
-    color: #007bff; /* Accent color for current page */
+    font-weight: bold;
+    color: var(--link-hover);
   }
 
   .theme-switcher {
     margin-left: 1em;
-  }
-
-  /* Dark Mode Styles */
-  .dark-mode {
-    background-color: #333;
-    color: #fff;
-  }
-
-  .dark-mode nav {
-    background-color: #444;
-  }
-
-  .dark-mode nav a:hover {
-    color: #ddd;
   }
 </style>
