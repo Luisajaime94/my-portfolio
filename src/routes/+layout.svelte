@@ -6,6 +6,7 @@
     { url: './projects', title: 'Projects' },
     { url: './CV', title: 'CV' },
     { url: './contact', title: 'Contact' },
+    { url: './meta', title: 'Meta' },
     { url: 'https://github.com/Luisajaime94', title: 'GitHub' }
   ];
 
