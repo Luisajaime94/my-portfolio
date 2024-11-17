@@ -22,5 +22,3 @@ vite.config.ts.timestamp-*
 
 # Custom
 static/loc.csv
-
-static/loc.csv
