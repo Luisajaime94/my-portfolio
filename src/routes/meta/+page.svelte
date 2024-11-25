@@ -4,7 +4,6 @@
   import Pie from '$lib/Pie.svelte';
 
   let svg;
-  let brushSelection;
 
   let data = [];
   let commits = [];
@@ -26,41 +25,32 @@
   usableArea.width = usableArea.right - usableArea.left;
   usableArea.height = usableArea.bottom - usableArea.top;
 
+  let selectedCommits = [];
+  let commitProgress = 100;
+
   function brushed(evt) {
-    brushSelection = evt.selection;
-    console.log('Brush Selection:', brushSelection);
+    let brushSelection = evt.selection;
+    selectedCommits = !brushSelection
+      ? []
+      : filteredCommits.filter((commit) => {
+          let min = { x: brushSelection[0][0], y: brushSelection[0][1] };
+          let max = { x: brushSelection[1][0], y: brushSelection[1][1] };
+          let x = xScale(commit.datetime);
+          let y = yScale(commit.hourFrac);
+
+          return x >= min.x && x <= max.x && y >= min.y && y <= max.y;
+        });
   }
 
   function isCommitSelected(commit) {
-    if (!brushSelection) return false;
-
-    const [[x0, y0], [x1, y1]] = brushSelection;
-    const x = xScale(commit.datetime);
-    const y = yScale(commit.hourFrac);
-
-    return x >= x0 && x <= x1 && y >= y0 && y <= y1;
+    return selectedCommits.includes(commit);
   }
 
-  $: {
-    if (svg) {
-      d3.select(svg).call(
-        d3.brush()
-          .extent([[usableArea.left, usableArea.top], [usableArea.right, usableArea.bottom]])
-          .on('start brush end', brushed)
-      );
+  function dotInteraction(evt, index) {
+    if (evt.type === "click" || (evt.type === "keyup" && evt.key === "Enter")) {
+      selectedCommits = [filteredCommits[index]];
     }
   }
-
-  $: selectedCommits = brushSelection ? commits.filter(isCommitSelected) : [];
-  $: hasSelection = brushSelection && selectedCommits.length > 0;
-  $: selectedLines = (hasSelection ? selectedCommits : commits).flatMap((d) => d.lines);
-  $: console.log('Data for Pie Chart:', Array.from(languageBreakdown).map(([language, lines]) => ({ label: language, value: lines })));
-
-  $: languageBreakdown = d3.rollups(
-    selectedLines,
-    (lines) => lines.length,
-    (line) => line.language
-  );
 
   let xAxis, yAxis, yAxisGridlines;
 
@@ -88,7 +78,7 @@
     totalCommits = commits.length;
   });
 
-  $: hoveredCommit = commits[hoveredIndex] ?? hoveredCommit ?? {};
+  $: hoveredCommit = filteredCommits[hoveredIndex] ?? hoveredCommit ?? {};
 
   function handleMouseEnter(index, event) {
     hoveredIndex = index;
@@ -101,9 +91,19 @@
     hoveredIndex = -1;
   }
 
+  $: timeScale = d3
+    .scaleLinear()
+    .domain(d3.extent(commits, (d) => d.datetime))
+    .range([0, 100]);
+
+  $: commitMaxTime = timeScale.invert(commitProgress);
+
+  $: filteredCommits = commits.filter((commit) => commit.datetime <= commitMaxTime);
+  $: filteredLines = data.filter((line) => line.datetime <= commitMaxTime);
+
   $: xScale = d3
     .scaleTime()
-    .domain(d3.extent(data, (d) => d.datetime))
+    .domain(d3.extent(filteredLines, (d) => d.datetime))
     .range([usableArea.left, usableArea.right]);
 
   $: yScale = d3
@@ -129,69 +129,19 @@
         .tickFormat("")
     );
   }
+
+  $: selectedLines = (selectedCommits.length > 0 ? selectedCommits : filteredCommits).flatMap((d) => d.lines);
+  $: languageBreakdown = d3.rollups(
+    selectedLines,
+    (lines) => lines.length,
+    (line) => line.language
+  );
 </script>
 
-<dl class="stats">
-  <dl class="stat">
-    <dt>Total <abbr title="Lines of Code">LOC</abbr></dt>
-    <dd>{data.length}</dd>
-  </dl>
-  <dl class="stat">
-    <dt>Total Commits</dt>
-    <dd>{totalCommits}</dd>
-  </dl>
-  <dl class="stat">
-    <dt>Number of Files</dt>
-    <dd>{numFiles}</dd>
-  </dl>
-  <dl class="stat">
-    <dt>Max File Length (Lines)</dt>
-    <dd>{maxFileLength}</dd>
-  </dl>
-  <dl class="stat">
-    <dt>Average File Length (Lines)</dt>
-    <dd>{avgFileLength.toFixed(2)}</dd>
-  </dl>
-  <dl class="stat">
-    <dt>Most Active Period</dt>
-    <dd>{maxPeriod}</dd>
-  </dl>
-</dl>
-
-<h2>Commits by Time of Day</h2>
-
-<table
-  id="commit-tooltip"
-  class="tooltip"
-  style="left: {tooltipX}px; top: {tooltipY}px; display: {hoveredCommit ? 'block' : 'none'};"
->
-  <tbody>
-    <tr>
-      <th>Commit</th>
-      <td><a href="{hoveredCommit?.url}" target="_blank">{hoveredCommit?.id}</a></td>
-    </tr>
-    <tr>
-      <th>Author</th>
-      <td>{hoveredCommit?.author}</td>
-    </tr>
-    <tr>
-      <th>Date</th>
-      <td>{hoveredCommit?.datetime?.toLocaleString("en", { dateStyle: "full" })}</td>
-    </tr>
-    <tr>
-      <th>Time</th>
-      <td>{hoveredCommit?.datetime?.toLocaleTimeString()}</td>
-    </tr>
-    <tr>
-      <th>Lines Edited</th>
-      <td>{hoveredCommit?.lines}</td>
-    </tr>
-  </tbody>
-</table>
-
+<!-- SVG Visualization -->
 <svg bind:this={svg} width={width} height={height}>
   <g class="dots">
-    {#each commits as commit, index}
+    {#each filteredCommits as commit, index (commit.id)}
       <circle
         cx={xScale(commit.datetime)}
         cy={yScale(commit.hourFrac)}
@@ -199,6 +149,9 @@
         fill="steelblue"
         on:mouseenter={(event) => handleMouseEnter(index, event)}
         on:mouseleave={handleMouseLeave}
+        on:click={(evt) => dotInteraction(evt, index)}
+        on:keyup={(evt) => dotInteraction(evt, index)}
+        tabindex="0"
         class:selected={isCommitSelected(commit)}
       />
     {/each}
@@ -214,73 +167,39 @@
   <g class="gridlines" transform="translate({usableArea.left}, 0)" bind:this={yAxisGridlines} />
 </svg>
 
-<h3>Language Breakdown </h3>
-<Pie data={Array.from(languageBreakdown).map(([language, lines]) => ({ label: language, value: lines }))} />
+<!-- Filtering Slider -->
+<div class="slider-container">
+  <label>
+    <input
+      type="range"
+      min="0"
+      max="100"
+      step="1"
+      bind:value={commitProgress}
+      class="slider"
+    />
+    <time>{commitMaxTime.toLocaleString(undefined, { dateStyle: "long", timeStyle: "short" })}</time>
+  </label>
+</div>
 
-<p>{hasSelection ? selectedCommits.length : "No"} commits selected</p>
-
-<h3>Language Breakdown Details</h3>
-{#each languageBreakdown as [language, lines]}
-  <p>{language}: {(lines / selectedLines.length * 100).toFixed(1)}%</p>
-{/each}
+<!-- Pie Chart -->
+<h3>Language Breakdown</h3>
+{#if languageBreakdown.length > 0}
+  <Pie pieData={Array.from(languageBreakdown).map(([language, lines]) => [language, lines])} />
+{:else}
+  <p>No data available for the pie chart.</p>
+{/if}
 
 <style>
-  svg {
-    overflow: visible;
+  .slider-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 20px;
   }
-
-  h2 {
-    font-size: 1.5rem;
-    text-align: center;
-    margin-bottom: 1rem;
-  }
-
-  .dots circle:hover {
-    cursor: pointer;
-    fill: orange;
-  }
-
-  .tooltip {
-    position: absolute;
-    background: white;
-    border: 1px solid #ccc;
-    padding: 8px;
-    border-radius: 4px;
-    font-size: 0.9rem;
-    pointer-events: none;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-  }
-
-  table.tooltip {
-    border-collapse: collapse;
-    width: 250px;
-  }
-
-  table.tooltip th {
-    text-align: left;
-    padding-right: 8px;
-  }
-
-  table.tooltip th,
-  table.tooltip td {
-    padding: 4px;
-  }
-
-  svg :global(.selection) {
-    fill: rgba(0, 0, 0, 0.1);
-    stroke: black;
-    stroke-dasharray: 4 2;
-  }
-
-  .stat {
-    margin-bottom: 10px;
-  }
-
-  .stat dt {
-    font-weight: bold;
-  }
-
-  .stat dd {
-    margin-left: 0;
+  .slider {
+    width: 100%;
+    max-width: 600px;
+    margin: 10px 0;
   }
 </style>

@@ -4,10 +4,18 @@
     export let selectedIndex = -1;
 
     let arcGenerator = d3.arc().innerRadius(0).outerRadius(50);
-    let sliceGenerator = d3.pie().value(d => d[1]);
-
-    $: arcs = sliceGenerator(pieData).map(d => arcGenerator(d));
+    let sliceGenerator = d3.pie().value(d => d[1]); // Use value function for pie slices
     let colors = d3.scaleOrdinal(d3.schemeTableau10);
+
+    // Combine all information into a single pieData structure
+    $: {
+        let arcs = sliceGenerator(pieData);
+        pieData = pieData.map((d, i) => ({
+            ...d,                        // Copy original data
+            ...arcs[i],                  // Add arcData (startAngle, endAngle)
+            arc: arcGenerator(arcs[i]), // Generate the arc path
+        }));
+    }
 
     function toggleWedge(index, event) {
         if (!event.key || event.key === 'Enter') {
@@ -17,10 +25,10 @@
 </script>
 
 <svg width="400" height="400" viewBox="-50 -50 100 100">
-    {#each arcs as arc, index}
+    {#each pieData as d, index}
         <path
-            d={arc}
-            fill={colors(index)}
+            d={d.arc} 
+            fill={colors(d[0])} 
             class:selected={selectedIndex === index}
             tabindex="0"
             role="button"
@@ -33,7 +41,7 @@
 
 <ul class="legend">
     {#each pieData as d, index}
-        <li style="--color: {colors(index)}" class:selected={selectedIndex === index}>
+        <li style="--color: {colors(d[0])}" class:selected={selectedIndex === index}>
             <span class="swatch"></span>
             {d[0]} <em>({d[1]})</em>
         </li>

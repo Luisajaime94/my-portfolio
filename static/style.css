@@ -85,33 +85,37 @@ a:hover {
 .stats dd {
   margin: 0;
 }
-.tooltip{
+
+.tooltip {
   position: absolute;
-  background-color:#ccc;
-  border:1px solid #ccc;
-  padding:12px;
+  background-color: #ccc;
+  border: 1px solid #ccc;
+  padding: 12px;
   border-radius: 8px;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
   font-size: 0.9rem;
   pointer-events: none;
   backdrop-filter: blur(5px);
   box-sizing: border-box;
-  color:#333;
+  color: #333;
 }
+
 table.tooltip {
   border-collapse: collapse;
   width: 250px;
-
 }
+
 table.tooltip th {
   text-align: left;
   padding-right: 8px;
   font-weight: normal;
 }
+
 table.tooltip th,
 table.tooltip td {
-  padding: 4px 6px; 
+  padding: 4px 6px;
 }
+
 dl.info {
   /* ... other styles ... */
   transition-duration: 500ms;
@@ -122,11 +126,13 @@ dl.info {
     visibility: hidden;
   }
 }
+
 .dots circle.selected {
   fill: orange;
   stroke: black;
   stroke-width: 2px;
 }
+
 h3 {
   font-size: 1.2rem;
   margin-top: 1rem;
@@ -142,4 +148,94 @@ p {
   width: 400px;
   height: 400px;
   margin: auto;
+}
+
+/* Slider Styles */
+.slider-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 20px;
+}
+
+.slider {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 100%;
+  max-width: 600px;
+  height: 6px;
+  background: #e0e0e0;
+  border-radius: 3px;
+  outline: none;
+  margin: 10px 0;
+}
+
+.slider::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 14px;
+  height: 14px;
+  background: #007bff; /* Blue color */
+  border-radius: 50%;
+  cursor: pointer;
+}
+
+.slider::-moz-range-thumb {
+  width: 14px;
+  height: 14px;
+  background: #007bff;
+  border: none;
+  border-radius: 50%;
+  cursor: pointer;
+}
+
+time {
+  font-size: 14px;
+  color: #333;
+  margin-top: 5px;
+}
+.files {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0.5rem 1rem;
+  margin: 1rem 5%;
+  width: 90%;
+  font-family: Arial, sans-serif;
+}
+
+.files > div {
+  display: grid;
+  grid-template-columns: 1fr auto; /* Two columns: file name and line count */
+  align-items: center;
+  padding: 0.5rem 0;
+  border-bottom: 1px solid #e0e0e0; /* Subtle line to separate rows */
+}
+
+.files dt {
+  grid-column: 1;
+  font-weight: bold;
+  color: #333;
+  word-wrap: break-word; /* Break long file names into multiple lines */
+}
+
+.files dd {
+  grid-column: 2;
+  color: #555;
+  font-size: 0.9rem;
+  text-align: right;
+}
+
+code {
+  font-family: monospace;
+  background: #f9f9f9;
+  padding: 2px 4px;
+  border-radius: 3px;
+  font-size: 0.9rem;
+}
+.line {
+  display: flex;
+  width: 0.5em;
+  aspect-ratio: 1;
+  background: steelblue;
+  border-radius: 50%;
 }
