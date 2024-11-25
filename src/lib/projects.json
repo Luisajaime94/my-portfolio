@@ -1,75 +1,80 @@
 [
-    {
-      "title": "232 Project",
-      "year": "2024",
-      "image": "https://via.placeholder.com/150",
-      "description": "Final project for course 232, focusing on data analysis and visualization techniques."
-    },
-    {
-      "title": "Assignment1",
-      "year": "2024",
-      "image": "https://via.placeholder.com/150",
-      "description": "A foundational assignment exploring data preprocessing and basic machine learning."
-    },
-    {
-      "title": "Happiness Dataset",
-      "year": "2023",
-      "image": "https://via.placeholder.com/150",
-      "description": "Analyzed the Happiness Dataset to uncover factors affecting happiness across countries."
-    },
-    {
-      "title": "Happiness Miniproject",
-      "year": "2023",
-      "image": "https://via.placeholder.com/150",
-      "description": "A mini project that dives deeper into happiness metrics using statistical analysis."
-    },
-    {
-      "title": "Happiness Dataset Project",
-      "year": "2023",
-      "image": "https://via.placeholder.com/150",
-      "description": "Extended analysis of the Happiness Dataset, focusing on data visualization."
-    },
-    {
-      "title": "Happiness Project",
-      "year": "2023",
-      "image": "https://via.placeholder.com/150",
-      "description": "Explored the correlation between economic factors and happiness levels in various countries."
-    },
-    {
-      "title": "Lecture Notebooks",
-      "year": "2024",
-      "image": "https://via.placeholder.com/150",
-      "description": "A collection of notebooks used in lectures, covering various data science topics."
-    },
-    {
-      "title": "Pyspark HW1",
-      "year": "2024",
-      "image": "https://via.placeholder.com/150",
-      "description": "First homework assignment on PySpark, focusing on big data processing and analysis."
-    },
-    {
-      "title": "Portfolio",
-      "year": "2023",
-      "image": "https://via.placeholder.com/150",
-      "description": "Personal portfolio showcasing various projects and assignments in data science."
-    },
-    {
-      "title": "Portafolio 2.0",
-      "year": "2024",
-      "image": "https://via.placeholder.com/150",
-      "description": "An updated version of my portfolio, featuring improved design and new projects."
-    },
-    {
-      "title": "Portafolio Final",
-      "year": "2024",
-      "image": "https://via.placeholder.com/150",
-      "description": "The final version of my portfolio, highlighting all completed projects and achievements."
-    },
-    {
-      "title": "My Portfolio",
-      "year": "2024",
-      "image": "https://via.placeholder.com/150",
-      "description": "A portfolio built with SvelteKit, displaying personal projects and professional skills."
-    }
-  ]
-  
+  {
+    "title": "232 Project",
+    "year": "2024",
+    "image": "https://via.placeholder.com/150",
+    "description": "Final project for course 232, focusing on data analysis and visualization techniques."
+  },
+  {
+    "title": "Assignment1",
+    "year": "2024",
+    "image": "https://via.placeholder.com/150",
+    "description": "A foundational assignment exploring data preprocessing and basic machine learning."
+  },
+  {
+    "title": "Happiness Dataset",
+    "year": "2023",
+    "image": "https://via.placeholder.com/150",
+    "description": "Analyzed the Happiness Dataset to uncover factors affecting happiness across countries."
+  },
+  {
+    "title": "Happiness Miniproject",
+    "year": "2023",
+    "image": "https://via.placeholder.com/150",
+    "description": "A mini project that dives deeper into happiness metrics using statistical analysis."
+  },
+  {
+    "title": "Happiness Dataset Project",
+    "year": "2023",
+    "image": "https://via.placeholder.com/150",
+    "description": "Extended analysis of the Happiness Dataset, focusing on data visualization."
+  },
+  {
+    "title": "Happiness Project",
+    "year": "2023",
+    "image": "https://via.placeholder.com/150",
+    "description": "Explored the correlation between economic factors and happiness levels in various countries."
+  },
+  {
+    "title": "Lecture Notebooks",
+    "year": "2024",
+    "image": "https://via.placeholder.com/150",
+    "description": "A collection of notebooks used in lectures, covering various data science topics."
+  },
+  {
+    "title": "Pyspark HW1",
+    "year": "2024",
+    "image": "https://via.placeholder.com/150",
+    "description": "First homework assignment on PySpark, focusing on big data processing and analysis."
+  },
+  {
+    "title": "Portfolio",
+    "year": "2023",
+    "image": "https://via.placeholder.com/150",
+    "description": "Personal portfolio showcasing various projects and assignments in data science."
+  },
+  {
+    "title": "Portafolio 2.0",
+    "year": "2024",
+    "image": "https://via.placeholder.com/150",
+    "description": "An updated version of my portfolio, featuring improved design and new projects."
+  },
+  {
+    "title": "Portafolio Final",
+    "year": "2024",
+    "image": "https://via.placeholder.com/150",
+    "description": "The final version of my portfolio, highlighting all completed projects and achievements."
+  },
+  {
+    "title": "My Portfolio",
+    "year": "2024",
+    "image": "https://via.placeholder.com/150",
+    "description": "A portfolio built with SvelteKit, displaying personal projects and professional skills."
+  },
+  {
+    "title": "Bike Watching",
+    "year": "2024",
+    "image": "https://via.placeholder.com/150",
+    "description": "Explore bike traffic visualization in Boston with dynamic data filtering and interactive features."
+  }
+]
